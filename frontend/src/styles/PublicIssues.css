@@ -1,107 +1,188 @@
 /* General Styles */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Smooch+Sans:wght@100..900&display=swap');
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark Background */
-    color: #E0E0E0; /* Light Gray Text */
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #1E1E1E; /* Darker Gray for Content Areas */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  }
-  
-  h1, h2 {
-    color: #BB86FC; /* Purple Accent for Headings */
-  }
-  
-  /* Form Styles */
-  .issue-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #B0B0B0; /* Secondary Gray Text */
-  }
-  
-  .issue-form input,
-  .issue-form select,
-  .issue-form textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #333333; /* Dark Border */
-    border-radius: 4px;
-    background-color: #1E1E1E; /* Dark Input Background */
-    color: #E0E0E0; /* Light Gray Text */
-  }
-  
-  .issue-form button {
-    padding: 10px 20px;
-    background-color: #BB86FC; /* Purple Accent */
-    color: #121212; /* Dark Text on Buttons */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .issue-form button:hover {
-    background-color: #9E6DCB; /* Slightly Darker Purple */
-  }
-  
-  /* Issue List Styles */
-  .issues-list {
-    margin-top: 20px;
-  }
-  
-  .issue-item {
-    border: 1px solid #333333; /* Dark Border */
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #1E1E1E; /* Dark Card Background */
-    border-radius: 4px;
-  }
-  
-  .issue-item p {
-    margin: 5px 0;
-  }
-  
-  .issue-item button {
-    padding: 5px 10px;
-    background-color: #03DAC6; /* Teal for Success Actions */
-    color: #121212; /* Dark Text */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .issue-item button:disabled {
-    background-color: #333333; /* Disabled Dark Button */
-    cursor: not-allowed;
-  }
-  
-  /* Alerts (Optional) */
-  .alert {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-  }
-  
-  .alert-success {
-    background-color: #164D45; /* Dark Teal Background */
-    color: #03DAC6; /* Teal Text */
-    border: 1px solid #03DAC6;
-  }
-  
-  .alert-error {
-    background-color: #4D1A1F; /* Dark Red Background */
-    color: #CF6679; /* Red Text */
-    border: 1px solid #CF6679;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark Background */
+  color: #e0e0e0; /* Light Gray Text */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #1e1e1e; /* Darker Gray for Content Areas */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2 {
+  color: #bb86fc; /* Purple Accent for Headings */
+}
+
+/* Form Styles */
+
+.issue-form {
+  padding: 20px;
+  background-color: #1e1e1e; /* Dark Background for Form Card */
+  border-radius: 8px; /* Rounded Corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle Shadow */
+  overflow: hidden; /* Prevent child elements from overflowing */
+}
+
+.issue-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #b0b0b0;
+}
+
+.issue-form textarea {
+  width: calc(100% - 24px); /* Adjust width to account for padding */
+  margin: 0 auto; /* Center it horizontally */
+  padding: 12px;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-size: 14px;
+  outline: none;
+  resize: vertical; /* Allow vertical resizing only */
+  box-sizing: border-box; /* Include padding and border in total width */
+}
+
+.issue-form input,
+.issue-form select {
+  width: calc(100% - 24px); /* Consistent width adjustment */
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.issue-form input,
+.issue-form select,
+.issue-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #333333; /* Dark Border */
+  border-radius: 4px;
+  background-color: #1e1e1e; /* Dark Input Background */
+  color: #e0e0e0; /* Light Gray Text */
+}
+
+.issue-form button {
+  padding: 10px 20px;
+  background-color: #bb86fc; /* Purple Accent */
+  color: #121212; /* Dark Text on Buttons */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.issue-form button:hover {
+  background-color: #9e6dcb; /* Slightly Darker Purple */
+}
+
+/* Issue List Styles */
+.issues-list {
+  margin-top: 20px;
+}
+
+.issue-item {
+  border: 1px solid #333333; /* Dark Border */
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #1e1e1e; /* Dark Card Background */
+  border-radius: 4px;
+}
+
+.issue-item p {
+  margin: 5px 0;
+}
+
+/* Enhanced Input and Text Area Styles */
+.issue-form input,
+.issue-form select,
+.issue-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px; /* Larger padding for a more modern look */
+  border: 1px solid #333333; /* Subtle dark border */
+  border-radius: 6px; /* Rounded corners for a sleek design */
+  background-color: #1e1e1e; /* Dark Input Background */
+  color: #e0e0e0; /* Light Text for readability */
+  font-size: 14px; /* Slightly larger font for better readability */
+  outline: none; /* Removes the default browser outline */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+/* Hover Effect */
+.issue-form input:hover,
+.issue-form textarea:hover {
+  border-color: #bb86fc; /* Purple Accent on hover */
+}
+
+/* Focus Effect */
+.issue-form input:focus,
+.issue-form textarea:focus {
+  border-color: #03dac6; /* Teal Border on focus */
+  box-shadow: 0 0 8px #03dac6; /* Glowing effect */
+}
+
+/* Text Area Specific Enhancements */
+.issue-form textarea {
+  min-height: 120px; /* Ensures enough height for text areas */
+  resize: vertical; /* Allows vertical resizing only */
+}
+
+/* Placeholder Text */
+.issue-form input::placeholder,
+.issue-form textarea::placeholder {
+  color: #b0b0b0; /* Subtle gray for placeholder text */
+  font-style: italic; /* Differentiates placeholder text from user input */
+}
+
+.issue-item button {
+  padding: 5px 10px;
+  background-color: #03dac6; /* Teal for Success Actions */
+  color: #121212; /* Dark Text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.issue-item button:disabled {
+  background-color: #333333; /* Disabled Dark Button */
+  cursor: not-allowed;
+}
+
+/* Alerts (Optional) */
+.alert {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #164d45; /* Dark Teal Background */
+  color: #03dac6; /* Teal Text */
+  border: 1px solid #03dac6;
+}
+
+.alert-error {
+  background-color: #4d1a1f; /* Dark Red Background */
+  color: #cf6679; /* Red Text */
+  border: 1px solid #cf6679;
+}
