@@ -1,0 +1,41 @@
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  .issue-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .issue-form input,
+  .issue-form select,
+  .issue-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+  }
+  
+  .issue-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .issue-item button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .issue-item button:disabled {
+    background-color: #ccc;
+  }
+  
