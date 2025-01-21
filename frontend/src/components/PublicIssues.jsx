@@ -1,7 +1,5 @@
-// File: src/pages/PublicIssues.jsx
-
 import { useState } from "react";
-import '../styles/PublicIssues.css';
+import "../styles/PublicIssues.css";
 
 const PublicIssues = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +12,7 @@ const PublicIssues = () => {
   const [issues, setIssues] = useState([]);
   const [votedIssues, setVotedIssues] = useState([]);
 
-  // Handle form changes
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -26,34 +24,39 @@ const PublicIssues = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIssues([
-      ...issues,
+
+    // Add new issue to the list
+    setIssues((prevIssues) => [
+      ...prevIssues,
       {
-        id: issues.length + 1,
+        id: prevIssues.length + 1,
         description: formData.description,
         issueType: formData.issueType,
         location: formData.location,
-        status: "Pending",
+        file: formData.file,
         votes: 0,
+        status: "Pending",
       },
     ]);
-    alert("Issue reported successfully!");
+
+    // Reset form data
     setFormData({
       description: "",
       issueType: "potholes",
       location: "",
       file: null,
     });
+    alert("Issue reported successfully!");
   };
 
-  // Handle voting
+  // Handle voting for an issue
   const handleVote = (id) => {
-    setIssues(
-      issues.map((issue) =>
+    setIssues((prevIssues) =>
+      prevIssues.map((issue) =>
         issue.id === id ? { ...issue, votes: issue.votes + 1 } : issue
       )
     );
-    setVotedIssues([...votedIssues, id]);
+    setVotedIssues((prevVotedIssues) => [...prevVotedIssues, id]);
   };
 
   return (
@@ -70,7 +73,7 @@ const PublicIssues = () => {
             Issue Description:
             <textarea
               name="description"
-              
+              placeholder="Describe the issue in detail..."
               value={formData.description}
               onChange={handleChange}
               required
@@ -98,6 +101,7 @@ const PublicIssues = () => {
             <input
               type="text"
               name="location"
+              placeholder="Enter the location"
               value={formData.location}
               onChange={handleChange}
               required
@@ -105,15 +109,22 @@ const PublicIssues = () => {
           </label>
         </div>
         <div>
-          <label>
-            Upload Photo/Video (Optional):
+          <label>Upload Photo/Video:</label>
+          <div className="file-input-wrapper">
             <input
               type="file"
+              className="file-input"
               name="file"
               accept="image/*,video/*"
               onChange={handleChange}
             />
-          </label>
+            <button type="button" className="file-button">
+              Choose File
+            </button>
+          </div>
+          {formData.file && (
+            <p className="file-name">Selected File: {formData.file.name}</p>
+          )}
         </div>
         <button type="submit">Report Issue</button>
       </form>

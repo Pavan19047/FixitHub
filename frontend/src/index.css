@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+body {
+  font-family: 'Nunito', sans-serif;
+}
+h1, h2, h3 {
+  font-weight: 700; /* Bold for headings */
+}
+
+p, label, input, textarea, button {
+  font-weight: 400; /* Regular weight for body text */
+}
+
+button {
+  font-weight: 600; /* Slightly bold for buttons */
+  text-transform: uppercase;
+}
 
 
 /* :root {

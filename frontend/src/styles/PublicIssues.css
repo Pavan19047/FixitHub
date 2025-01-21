@@ -1,8 +1,9 @@
-/* General Styles */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap'); */
+/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Smooch+Sans:wght@100..900&display=swap');
+
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
   background-color: #121212; /* Dark Background */
   color: #e0e0e0; /* Light Gray Text */
   margin: 0;
@@ -16,21 +17,35 @@ body {
   background-color: #1e1e1e; /* Darker Gray for Content Areas */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out; /* Landing animation */
+}
+
+/* Keyframes for Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in place */
+  }
 }
 
 h1,
 h2 {
   color: #bb86fc; /* Purple Accent for Headings */
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 /* Form Styles */
-
 .issue-form {
   padding: 20px;
   background-color: #1e1e1e; /* Dark Background for Form Card */
-  border-radius: 8px; /* Rounded Corners */
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle Shadow */
   overflow: hidden; /* Prevent child elements from overflowing */
+  animation: fadeIn 1s ease-in-out;
 }
 
 .issue-form label {
@@ -40,44 +55,35 @@ h2 {
   color: #b0b0b0;
 }
 
-.issue-form textarea {
-  width: calc(100% - 24px); /* Adjust width to account for padding */
-  margin: 0 auto; /* Center it horizontally */
-  padding: 12px;
-  border: 1px solid #333333;
-  border-radius: 6px;
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  font-size: 14px;
-  outline: none;
-  resize: vertical; /* Allow vertical resizing only */
-  box-sizing: border-box; /* Include padding and border in total width */
-}
-
-.issue-form input,
-.issue-form select {
-  width: calc(100% - 24px); /* Consistent width adjustment */
-  margin: 0 auto;
-  padding: 12px;
-  border: 1px solid #333333;
-  border-radius: 6px;
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  font-size: 14px;
-  outline: none;
-  box-sizing: border-box;
-}
-
 .issue-form input,
 .issue-form select,
 .issue-form textarea {
   width: 100%;
   margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #333333; /* Dark Border */
-  border-radius: 4px;
+  padding: 12px; /* Larger padding for a modern look */
+  border: 1px solid #333333; /* Subtle dark border */
+  border-radius: 6px; /* Rounded corners */
   background-color: #1e1e1e; /* Dark Input Background */
-  color: #e0e0e0; /* Light Gray Text */
+  color: #e0e0e0; /* Light Text for readability */
+  font-size: 14px; /* Larger font */
+  outline: none; /* Removes the default outline */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth interactions */
+}
+
+.issue-form input:hover,
+.issue-form textarea:hover {
+  border-color: #bb86fc; /* Purple Accent on hover */
+}
+
+.issue-form input:focus,
+.issue-form textarea:focus {
+  border-color: #03dac6; /* Teal Border on focus */
+  box-shadow: 0 0 8px #03dac6; /* Glowing effect */
+}
+
+.issue-form textarea {
+  min-height: 120px; /* Ensures enough height for text areas */
+  resize: vertical; /* Allow vertical resizing only */
 }
 
 .issue-form button {
@@ -89,10 +95,35 @@ h2 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  margin-right: 10px; /* Add margin to create gaps between buttons */
 }
 
 .issue-form button:hover {
   background-color: #9e6dcb; /* Slightly Darker Purple */
+}
+
+.issue-form button[type="submit"] {
+  display: block; /* Ensures it spans a new line */
+  margin-top: 20px; /* Add space above the button */
+  width: 100%; /* Full-width button */
+  padding: 12px;
+  background-color: #03DAC6; /* Teal for success */
+  color: #121212; /* Dark text */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.issue-form button[type="submit"]:hover {
+  background-color: #02B5A1; /* Darker teal */
+}
+
+.issue-form button[type="submit"]:active {
+  transform: scale(0.98); /* Slightly shrink on click */
 }
 
 /* Issue List Styles */
@@ -106,65 +137,32 @@ h2 {
   margin-bottom: 15px;
   background-color: #1e1e1e; /* Dark Card Background */
   border-radius: 4px;
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 1.2s ease-in-out;
+  animation-fill-mode: forwards; /* Ensures the final state is kept */
 }
 
 .issue-item p {
   margin: 5px 0;
 }
 
-/* Enhanced Input and Text Area Styles */
-.issue-form input,
-.issue-form select,
-.issue-form textarea {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 12px; /* Larger padding for a more modern look */
-  border: 1px solid #333333; /* Subtle dark border */
-  border-radius: 6px; /* Rounded corners for a sleek design */
-  background-color: #1e1e1e; /* Dark Input Background */
-  color: #e0e0e0; /* Light Text for readability */
-  font-size: 14px; /* Slightly larger font for better readability */
-  outline: none; /* Removes the default browser outline */
-  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
-}
-
-/* Hover Effect */
-.issue-form input:hover,
-.issue-form textarea:hover {
-  border-color: #bb86fc; /* Purple Accent on hover */
-}
-
-/* Focus Effect */
-.issue-form input:focus,
-.issue-form textarea:focus {
-  border-color: #03dac6; /* Teal Border on focus */
-  box-shadow: 0 0 8px #03dac6; /* Glowing effect */
-}
-
-/* Text Area Specific Enhancements */
-.issue-form textarea {
-  min-height: 120px; /* Ensures enough height for text areas */
-  resize: vertical; /* Allows vertical resizing only */
-}
-
-/* Placeholder Text */
-.issue-form input::placeholder,
-.issue-form textarea::placeholder {
-  color: #b0b0b0; /* Subtle gray for placeholder text */
-  font-style: italic; /* Differentiates placeholder text from user input */
-}
-
+/* Button Styles */
 .issue-item button {
   padding: 5px 10px;
-  background-color: #03dac6; /* Teal for Success Actions */
-  color: #121212; /* Dark Text */
+  background-color: #03DAC6; /* Teal for success */
+  color: #121212; /* Dark text */
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.issue-item button:hover {
+  background-color: #02B5A1; /* Darker teal */
 }
 
 .issue-item button:disabled {
-  background-color: #333333; /* Disabled Dark Button */
+  background-color: #6C757D; /* Gray for disabled */
   cursor: not-allowed;
 }
 
@@ -185,4 +183,37 @@ h2 {
   background-color: #4d1a1f; /* Dark Red Background */
   color: #cf6679; /* Red Text */
   border: 1px solid #cf6679;
+}
+
+/* File Input Wrapper */
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-button {
+  padding: 10px 20px;
+  background-color: #BB86FC;
+  color: #121212;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.file-button:hover {
+  background-color: #9E6DCB;
+  transform: scale(1.05);
 }

@@ -1,15 +1,29 @@
-// import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PublicIssues from "./components/PublicIssues";
+import Contact from "./components/Contact";
 import "./App.css";
 
-function App() {
-  // const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <PublicIssues/>
-    </>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/public-issues" element={<PublicIssues />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* Add more routes as needed */}
+          <Route
+            path="/"
+            element={
+              <div>
+                <h1>Welcome to FixitHub</h1>
+                <p>Select a section from the menu.</p>
+              </div>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
