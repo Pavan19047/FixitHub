@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PublicIssues from "./components/PublicIssues";
 import Contact from "./components/Contact";
+import AdminDashboard from "./components/AdminDashboard";
 import "./App.css";
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/public-issues" element={<PublicIssues />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard/>} />
           {/* Add more routes as needed */}
           <Route
             path="/"
