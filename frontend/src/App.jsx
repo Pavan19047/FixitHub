@@ -12,7 +12,6 @@ const App = () => {
           <Route path="/public-issues" element={<PublicIssues />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin-dashboard" element={<AdminDashboard/>} />
-          {/* Add more routes as needed */}
           <Route
             path="/"
             element={
