@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PublicIssues from "./components/PublicIssues";
 import Contact from "./components/Contact";
 import AdminDashboard from "./components/AdminDashboard";
+import WorkerListPage from "./components/WorkerListPage";
+import HouseRepair from "./components/HouseRepair";
 import "./App.css";
 
 const App = () => {
@@ -12,6 +14,8 @@ const App = () => {
           <Route path="/public-issues" element={<PublicIssues />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin-dashboard" element={<AdminDashboard/>} />
+          <Route path="/house-repair" element={<HouseRepair/>} />
+          <Route path="/workers/:workerType" element={<WorkerListPage />} />
           <Route
             path="/"
             element={
