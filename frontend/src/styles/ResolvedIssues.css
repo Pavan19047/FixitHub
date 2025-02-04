@@ -1,0 +1,62 @@
+/* Resolved Issues Page Styles */
+
+.resolved-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #106EBE; /* Blue Background */
+    color: #FFFFFF; /* White Text */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .resolved-container h1 {
+    text-align: center;
+    color: #0FFCBE; /* Mint Accent */
+    margin-bottom: 20px;
+  }
+  
+  .resolved-list {
+    margin-top: 20px;
+  }
+  
+  .resolved-item {
+    background-color: #0FFCBE; /* Mint Card Background */
+    color: #106EBE; /* Blue Text */
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #106EBE; /* Blue Border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .resolved-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .resolved-item p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .resolved-container {
+      padding: 15px;
+    }
+  }
+  

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/PublicIssues.css";
+import axios from "axios";
 
 const PublicIssues = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,12 @@ const PublicIssues = () => {
   const [issues, setIssues] = useState([]);
   const [votedIssues, setVotedIssues] = useState([]);
 
-  // Handle form input changes
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/issues")
+      .then((res) => setIssues(res.data))
+      .catch((err) => console.error("Error fetching issues:", err));
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -21,142 +27,134 @@ const PublicIssues = () => {
     });
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Add new issue to the list
-    setIssues((prevIssues) => [
-      ...prevIssues,
-      {
-        id: prevIssues.length + 1,
-        description: formData.description,
-        issueType: formData.issueType,
-        location: formData.location,
-        file: formData.file,
-        votes: 0,
-        status: "Pending",
-      },
-    ]);
-
-    // Reset form data
-    setFormData({
-      description: "",
-      issueType: "potholes",
-      location: "",
-      file: null,
-    });
-    alert("Issue reported successfully!");
+    try {
+      const res = await axios.post("http://localhost:5000/api/issues", formData);
+      setIssues([...issues, res.data]);
+      setFormData({
+        description: "",
+        issueType: "potholes",
+        location: "",
+        file: null,
+      });
+      alert("Issue reported successfully!");
+    } catch (error) {
+      console.error("Error reporting issue:", error);
+    }
   };
 
-  // Handle voting for an issue
-  const handleVote = (id) => {
-    setIssues((prevIssues) =>
-      prevIssues.map((issue) =>
-        issue.id === id ? { ...issue, votes: issue.votes + 1 } : issue
-      )
-    );
-    setVotedIssues((prevVotedIssues) => [...prevVotedIssues, id]);
+  const handleVote = async (id) => {
+    try {
+      await axios.put(`http://localhost:5000/api/issues/${id}/vote`);
+      setIssues((prevIssues) =>
+        prevIssues.map((issue) =>
+          issue._id === id ? { ...issue, votes: issue.votes + 1 } : issue
+        )
+      );
+      setVotedIssues((prevVotedIssues) => [...prevVotedIssues, id]);
+    } catch (error) {
+      console.error("Error voting for issue:", error);
+    }
   };
 
   return (
-    <div className="container">
-      <h1>Public Issues Section</h1>
-      <p>
-        Report public infrastructure issues and help prioritize resolutions.
-      </p>
+    <div className="page-container">
+      <div className="content-grid">
+        <div className="header-section">
+          <h1>Public Issues Section</h1>
+          <p className="subtitle">Report public infrastructure issues and help prioritize resolutions.</p>
+        </div>
 
-      {/* Issue Reporting Form */}
-      <form onSubmit={handleSubmit} className="issue-form">
-        <div>
-          <label>
-            Issue Description:
-            <textarea
-              name="description"
-              placeholder="Describe the issue in detail..."
-              value={formData.description}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </label>
-        </div>
-        <div>
-          <label>
-            Issue Type:
-            <select
-              name="issueType"
-              value={formData.issueType}
-              onChange={handleChange}
-            >
-              <option value="potholes">Potholes</option>
-              <option value="streetlights">Broken Streetlights</option>
-              <option value="garbage">Garbage Collection</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
-        </div>
-        <div>
-          <label>
-            Location:
-            <input
-              type="text"
-              name="location"
-              placeholder="Enter the location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label>Upload Photo/Video:</label>
-          <div className="file-input-wrapper">
-            <input
-              type="file"
-              className="file-input"
-              name="file"
-              accept="image/*,video/*"
-              onChange={handleChange}
-            />
-            <button type="button" className="file-button">
-              Choose File
-            </button>
-          </div>
-          {formData.file && (
-            <p className="file-name">Selected File: {formData.file.name}</p>
-          )}
-        </div>
-        <button type="submit">Report Issue</button>
-      </form>
+        <div className="form-section">
+          <form onSubmit={handleSubmit} className="issue-form">
+            <div className="form-group">
+              <label htmlFor="description">Issue Description:</label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Describe the issue in detail..."
+                value={formData.description}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      {/* Display Reported Issues */}
-      <h2>Reported Issues</h2>
-      <div className="issues-list">
-        {issues.map((issue) => (
-          <div key={issue.id} className="issue-item">
-            <p>
-              <strong>Description:</strong> {issue.description}
-            </p>
-            <p>
-              <strong>Type:</strong> {issue.issueType}
-            </p>
-            <p>
-              <strong>Location:</strong> {issue.location}
-            </p>
-            <p>
-              <strong>Status:</strong> {issue.status}
-            </p>
-            <p>
-              <strong>Votes:</strong> {issue.votes}
-            </p>
-            <button
-              onClick={() => handleVote(issue.id)}
-              disabled={votedIssues.includes(issue.id)}
-            >
-              {votedIssues.includes(issue.id) ? "Voted" : "Vote"}
-            </button>
+            <div className="form-group">
+              <label htmlFor="issueType">Issue Type:</label>
+              <div className="select-wrapper">
+                <select
+                  id="issueType"
+                  name="issueType"
+                  value={formData.issueType}
+                  onChange={handleChange}
+                  className="custom-select"
+                >
+                  <option value="potholes">Potholes</option>
+                  <option value="streetlights">Broken Streetlights</option>
+                  <option value="garbage">Garbage Collection</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="location">Location:</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Enter the location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Upload Photo/Video:</label>
+              <div className="file-input-wrapper">
+                <input
+                  type="file"
+                  className="file-input"
+                  name="file"
+                  accept="image/*,video/*"
+                  onChange={handleChange}
+                />
+                <button type="button" className="file-button">
+                  Choose File
+                </button>
+              </div>
+              {formData.file && (
+                <p className="file-name">Selected File: {formData.file.name}</p>
+              )}
+            </div>
+
+            <button type="submit" className="submit-button">Report Issue</button>
+          </form>
+        </div>
+
+        <div className="issues-section">
+          <h2>Reported Issues</h2>
+          <div className="issues-list">
+            {issues.map((issue) => (
+              <div key={issue._id} className="issue-item">
+                <p><strong>Description:</strong> {issue.description}</p>
+                <p><strong>Type:</strong> {issue.issueType}</p>
+                <p><strong>Location:</strong> {issue.location}</p>
+                <p><strong>Status:</strong> {issue.status}</p>
+                <p><strong>Votes:</strong> {issue.votes}</p>
+                <button
+                  onClick={() => handleVote(issue._id)}
+                  disabled={votedIssues.includes(issue._id)}
+                  className="vote-button"
+                >
+                  {votedIssues.includes(issue._id) ? "Voted" : "Vote"}
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
