@@ -14,7 +14,8 @@ const PublicIssues = () => {
   const [votedIssues, setVotedIssues] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/issues")
+    axios
+      .get("http://localhost:5000/api/issues")
       .then((res) => setIssues(res.data))
       .catch((err) => console.error("Error fetching issues:", err));
   }, []);
@@ -29,8 +30,20 @@ const PublicIssues = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const data = new FormData();
+    data.append("description", formData.description);
+    data.append("issueType", formData.issueType);
+    data.append("location", formData.location);
+    if (formData.file) {
+      data.append("file", formData.file);
+    }
+
     try {
-      const res = await axios.post("http://localhost:5000/api/issues", formData);
+      const res = await axios.post("http://localhost:5000/api/issues", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       setIssues([...issues, res.data]);
       setFormData({
         description: "",
@@ -63,7 +76,9 @@ const PublicIssues = () => {
       <div className="content-grid">
         <div className="header-section">
           <h1>Public Issues Section</h1>
-          <p className="subtitle">Report public infrastructure issues and help prioritize resolutions.</p>
+          <p className="subtitle">
+            Report public infrastructure issues and help prioritize resolutions.
+          </p>
         </div>
 
         <div className="form-section">
@@ -130,7 +145,9 @@ const PublicIssues = () => {
               )}
             </div>
 
-            <button type="submit" className="submit-button">Report Issue</button>
+            <button type="submit" className="submit-button">
+              Report Issue
+            </button>
           </form>
         </div>
 
@@ -139,11 +156,31 @@ const PublicIssues = () => {
           <div className="issues-list">
             {issues.map((issue) => (
               <div key={issue._id} className="issue-item">
-                <p><strong>Description:</strong> {issue.description}</p>
-                <p><strong>Type:</strong> {issue.issueType}</p>
-                <p><strong>Location:</strong> {issue.location}</p>
-                <p><strong>Status:</strong> {issue.status}</p>
-                <p><strong>Votes:</strong> {issue.votes}</p>
+                <p>
+                  <strong>Description:</strong> {issue.description}
+                </p>
+                <p>
+                  <strong>Type:</strong> {issue.issueType}
+                </p>
+                <p>
+                  <strong>Location:</strong> {issue.location}
+                </p>
+                <p>
+                  <strong>Status:</strong> {issue.status}
+                </p>
+                <p>
+                  <strong>Votes:</strong> {issue.votes}
+                </p>
+                {issue.file && (
+                  <div className="issue-image-container">
+                    <img
+                      src={`http://localhost:5000/api/files/${issue.file}`}
+                      alt="Issue"
+                      className="issue-image"
+                    />
+                    <p className="file-name">File: {issue.originalFileName}</p>
+                  </div>
+                )}
                 <button
                   onClick={() => handleVote(issue._id)}
                   disabled={votedIssues.includes(issue._id)}
