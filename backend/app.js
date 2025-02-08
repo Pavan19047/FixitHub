@@ -81,5 +81,32 @@ app.get('/api/files/:filename', (req, res) => {
     }
   })
 })
+app.get('/api/plumbers', async (req, res) => {
+  try {
+      const plumbers = await Plumber.find();
+      res.json(plumbers);
+  } catch (error) {
+      res.status(500).json({ message: "Error fetching plumbers", error });
+  }
+});
+
+app.get('/api/electricians', async (req, res) => {
+  try {
+      const electricians = await Electrician.find();
+      res.json(electricians);
+  } catch (error) {
+      res.status(500).json({ message: "Error fetching electricians", error });
+  }
+});
+
+app.get('/api/carpenters', async (req, res) => {
+  try {
+      const carpenters = await Carpenter.find();
+      res.json(carpenters);
+  } catch (error) {
+      res.status(500).json({ message: "Error fetching carpenters", error });
+  }
+});
+
 
 // ...existing code...

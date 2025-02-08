@@ -4,6 +4,7 @@ import Contact from "./components/Contact";
 import AdminDashboard from "./components/AdminDashboard";
 import HouseHold from "./components/HouseHoldRepairs";
 import ResolvedIssues from "./components/ResolvedIssues";
+import CardsPage from "./components/WorkersList";
 import "./App.css";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/householdrepairs" element={<HouseHold />} />
+          <Route path="/workers/:category" element={<CardsPage />} />
           <Route
             path="/"
             element={

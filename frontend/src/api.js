@@ -21,3 +21,8 @@ export const voteIssue = async (issueId) => {
 export const getResolvedIssues = async () => {
   return await axios.get(`${API_URL}/reports`);
 };
+
+// Get list of workers
+export const getWorkers = async () => {
+  return await axios.get(`${API_URL}/workers`);
+};

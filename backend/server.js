@@ -35,9 +35,11 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 const issueRoutes = require('./routes/issues');
 const userRoutes = require('./routes/users');
+const workerRoutes = require("./routes/workersRouters");
 
 app.use('/api/issues', upload.single('file'), issueRoutes);
 app.use('/api/users', userRoutes);
+app.use("/api", workerRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
