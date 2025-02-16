@@ -10,7 +10,7 @@ function Household() {
   };
 
   return (
-    <div>
+    <div className="houserepairs">
       <h1 id="heading">Select Your Service: </h1>
       <div className="container">
         <div
