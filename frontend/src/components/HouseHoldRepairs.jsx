@@ -18,11 +18,13 @@ function Household() {
           className="animation"
           onClick={() => handleCardClick("plumbers")}
         >
-          <img
-            className="img-card"
-            src="../images/plumber.avif"
-            alt="Plumber"
-          />
+          <center>
+            <img
+              className="img-card"
+              src="../images/plumber.avif"
+              alt="Plumber"
+            />
+          </center>
           <h2 style={{ textAlign: "center", marginTop: 120 }}>Plumber</h2>
         </div>
         <div
@@ -30,11 +32,13 @@ function Household() {
           className="animation"
           onClick={() => handleCardClick("carpenters")}
         >
-          <img
-            className="img-card"
-            src="../images/carpenter.jpg"
-            alt="Carpenter"
-          />
+          <center>
+            <img
+              className="img-card"
+              src="../images/carpenter.jpg"
+              alt="Carpenter"
+            />
+          </center>
           <h2 style={{ textAlign: "center", marginTop: 120 }}>Carpenter</h2>
         </div>
         <div
@@ -42,11 +46,13 @@ function Household() {
           className="animation"
           onClick={() => handleCardClick("electricians")}
         >
-          <img
-            className="img-card"
-            src="../images/electrician.avif"
-            alt="Electrician"
-          />
+          <center>
+            <img
+              className="img-card"
+              src="../images/electrician.avif"
+              alt="Electrician"
+            />
+          </center>
           <h2 style={{ textAlign: "center", marginTop: 120 }}>Electrician</h2>
         </div>
       </div>

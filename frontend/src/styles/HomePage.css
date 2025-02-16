@@ -1,9 +1,4 @@
 /* Reset default styles */
-.homepage *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* General container */
 .homepage-container {
