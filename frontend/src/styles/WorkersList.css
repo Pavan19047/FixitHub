@@ -4,18 +4,19 @@
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
-    width: 100%; /* Make the container take full width */
+    width: 100%;
 }
 
 .worker-card {
-    width: 100%; /* Make each card take almost full width */
-    max-width: 600px; /* Limit max width for readability */
+    width: 100%;
+    max-width: 600px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.2s;
+    position: relative; /* Allows proper alignment */
 }
 
 .worker-card:hover {
@@ -30,21 +31,66 @@
 
 .worker-card p {
     margin: 5px 0;
-    color: black; /* Brighter text color */
-    font-weight: bold; /* Make the text more readable */
+    color: black;
+    font-weight: bold;
     font-size: 1.1em;
 }
-.bookButton{
+
+.bookButton {
     padding: 10px;
     margin-top: 5px;
     background-color: plum;
     border-radius: 100%;
-    border: 0px;
+    border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     transition: transform 0.2s;
+    cursor: pointer;
 }
+
 .bookButton:hover {
     transform: scale(1.05);
 }
 
+/* Booking form styling */
+.booking-form {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.booking-form h3 {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.booking-form button:hover {
+    background-color: #059669;
+}

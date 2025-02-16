@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getResolvedIssues } from "../api";
+import { getResolvedIssues } from "../../../backend/api";
 import "../styles/ResolvedIssues.css";
 
 const ResolvedIssues = () => {

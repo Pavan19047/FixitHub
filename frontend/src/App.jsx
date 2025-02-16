@@ -4,21 +4,24 @@ import Contact from "./components/Contact";
 import AdminDashboard from "./components/AdminDashboard";
 import HouseHold from "./components/HouseHoldRepairs";
 import ResolvedIssues from "./components/ResolvedIssues";
+import HomePage from ".//components/HomePage";
 import CardsPage from "./components/WorkersList";
 import "./App.css";
+
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/public-issues" element={<PublicIssues />} />
           <Route path="/resolved" element={<ResolvedIssues />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/householdrepairs" element={<HouseHold />} />
           <Route path="/workers/:category" element={<CardsPage />} />
-          <Route
+          {/* <Route
             path="/"
             element={
               <div>
@@ -26,7 +29,7 @@ const App = () => {
                 <p>Select a section from the menu.</p>
               </div>
             }
-          />
+          /> */}
         </Routes>
       </div>
     </Router>
