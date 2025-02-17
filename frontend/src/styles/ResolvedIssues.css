@@ -1,62 +1,129 @@
 /* Resolved Issues Page Styles */
 
 .resolved-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #106EBE; /* Blue Background */
-    color: #FFFFFF; /* White Text */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in-out;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #106ebe; /* Blue Background */
+  color: #ffffff; /* White Text */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.resolved-container h1 {
+  text-align: center;
+  color: #0ffcbe; /* Mint Accent */
+  margin-bottom: 20px;
+}
+
+.resolved-list {
+  margin-top: 20px;
+}
+
+.resolved-item {
+  background-color: #0ffcbe; /* Mint Card Background */
+  color: #106ebe; /* Blue Text */
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #106ebe; /* Blue Border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.resolved-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.resolved-item p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .resolved-container h1 {
-    text-align: center;
-    color: #0FFCBE; /* Mint Accent */
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .resolved-list {
-    margin-top: 20px;
-  }
-  
-  .resolved-item {
-    background-color: #0FFCBE; /* Mint Card Background */
-    color: #106EBE; /* Blue Text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resolved-container {
     padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    border: 1px solid #106EBE; /* Blue Border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
   }
-  
-  .resolved-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* General container */
+.resolved-issues-container {
+  min-height: 100vh;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Issues Content */
+.issues-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resolved-issues-container {
+    padding: 1rem;
   }
-  
-  .resolved-item p {
-    margin: 5px 0;
-    font-size: 14px;
+
+  h1 {
+    font-size: 2.5rem;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .card {
+    padding: 1.5rem;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .resolved-container {
-      padding: 15px;
-    }
-  }
-  
+}

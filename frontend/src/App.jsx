@@ -7,7 +7,7 @@ import ResolvedIssues from "./components/ResolvedIssues";
 import HomePage from "./components/HomePage";
 import CardsPage from "./components/WorkersList";
 import Layout from "./components/Layout";
-import "./App.css";
+import "./styles/App.css";
 
 const App = () => {
   return (

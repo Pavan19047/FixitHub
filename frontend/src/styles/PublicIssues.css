@@ -7,12 +7,77 @@
 .page-container {
   min-height: 100vh;
   padding: 2rem;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .content-grid {
   display: grid;
   grid-template-columns: 1fr minmax(auto, 800px) 1fr;
   gap: 2rem;
+}
+
+/* Navbar */
+.nav {
+  background-color: #0f172a;
+  color: white;
+  padding: 1rem;
+  margin-top: -8px;
+  margin-right: -16px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-image {
+  height: 40px;
+  width: 40px;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.brand-accent {
+  color: #10b981;
+}
+
+.menu-button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #10b981;
 }
 
 /* Header Section */
@@ -24,14 +89,14 @@
 
 h1 {
   font-size: 3.5rem;
-  color: #bb86fc;
+  color: #0f172a;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
 }
 
 .subtitle {
   font-size: 1.2rem;
-  color: #e0e0e0;
+  color: #4b5563;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -39,7 +104,7 @@ h1 {
 /* Form Section */
 .form-section {
   grid-column: 2;
-  background-color: #1e1e1e;
+  background-color: #f8fafc;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -59,16 +124,16 @@ h1 {
 
 label {
   font-weight: 600;
-  color: #bb86fc;
+  color: #0f172a;
 }
 
 input,
 textarea {
   padding: 0.75rem;
-  background-color: #2d2d2d;
+  background-color: #ffffff;
   border: 2px solid #3d3d3d;
   border-radius: 8px;
-  color: #e0e0e0;
+  color: #4b5563;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -89,7 +154,7 @@ textarea {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #bb86fc;
+  border-top: 6px solid #0f172a;
   pointer-events: none;
   transition: transform 0.3s ease;
 }
@@ -102,41 +167,41 @@ textarea {
   width: 100%;
   padding: 0.75rem;
   padding-right: 2.5rem;
-  background-color: #2d2d2d;
+  background-color: #ffffff;
   border: 2px solid #3d3d3d;
   border-radius: 8px;
-  color: #e0e0e0;
+  color: #4b5563;
   font-size: 1rem;
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
   -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   transition: all 0.3s ease;
 }
 
 .custom-select:hover {
-  border-color: #bb86fc;
+  border-color: #0f172a;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(187, 134, 252, 0.2);
 }
 
 .custom-select:focus {
-  border-color: #bb86fc;
+  border-color: #0f172a;
   outline: none;
   box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
   transform: translateY(-2px);
 }
 
 .custom-select option {
-  background-color: #2d2d2d;
-  color: #e0e0e0;
+  background-color: #ffffff;
+  color: #4b5563;
   padding: 1rem;
   font-size: 1rem;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #bb86fc;
+  border-color: #0f172a;
   outline: none;
   box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
 }
@@ -164,8 +229,8 @@ textarea {
 
 .file-button {
   padding: 0.75rem 1.5rem;
-  background-color: #bb86fc;
-  color: #121212;
+  background-color: #10b981;
+  color: white;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -180,15 +245,15 @@ textarea {
 
 .file-name {
   margin-top: 0.5rem;
-  color: #bb86fc;
+  color: #0f172a;
   font-size: 0.9rem;
 }
 
 /* Submit Button */
 .submit-button {
   padding: 1rem;
-  background-color: #03dac6;
-  color: #121212;
+  background-color: #10b981;
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -212,7 +277,7 @@ textarea {
 
 h2 {
   font-size: 2rem;
-  color: #bb86fc;
+  color: #0f172a;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -223,7 +288,7 @@ h2 {
 }
 
 .issue-item {
-  background-color: #1e1e1e;
+  background-color: #f8fafc;
   padding: 1.5rem;
   border-radius: 12px;
   border: 2px solid #2d2d2d;
@@ -241,7 +306,7 @@ h2 {
 }
 
 .issue-item strong {
-  color: #bb86fc;
+  color: #0f172a;
   margin-right: 0.5rem;
 }
 
@@ -249,8 +314,8 @@ h2 {
 .vote-button {
   margin-top: 1rem;
   padding: 0.5rem 1.5rem;
-  background-color: #03dac6;
-  color: #121212;
+  background-color: #10b981;
+  color: white;
   border: none;
   border-radius: 6px;
   font-weight: 600;

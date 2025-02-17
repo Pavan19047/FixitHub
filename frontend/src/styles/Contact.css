@@ -1,136 +1,111 @@
-/* General Styles for Contact Us Component */
+/* General container */
 .contact-container {
-    font-family: 'Nunito', sans-serif;
-    color: #e0e0e0; /* Light Gray Text */
-    background-color: #121212; /* Dark Background */
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1.5s ease-in-out;
+  min-height: 100vh;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Form Section */
+.form-section {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 2px solid #3d3d3d;
+  border-radius: 8px;
+  color: #4b5563;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0f172a;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit-button {
+  padding: 1rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #02b5a1;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1rem;
   }
-  
-  .contact-container h1 {
-    color: #bb86fc; /* Purple Accent */
-    text-align: center;
-    margin-bottom: 10px;
+
+  h1 {
+    font-size: 2.5rem;
   }
-  
-  .contact-container p {
-    color: #b0b0b0; /* Subtle Gray */
-    text-align: center;
-    margin-bottom: 20px;
+
+  .form-section {
+    padding: 1.5rem;
   }
-  
-  /* Contact Form Styles */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .contact-form label {
-    display: block;
-    font-weight: bold;
-    color: #b0b0b0;
-    margin-bottom: 8px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: #1e1e1e; /* Dark Input Background */
-    color: #e0e0e0; /* Light Text */
-    border: 1px solid #333333;
-    border-radius: 6px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #03dac6; /* Teal Border */
-    box-shadow: 0 0 8px #03dac6; /* Glowing effect */
-  }
-  
-  /* Button Styles */
-  .submit-button {
-    padding: 12px;
-    background-color: #03dac6; /* Teal for success */
-    color: #121212; /* Dark Text */
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #02b5a1; /* Darker Teal */
-    transform: translateY(-2px); /* Subtle hover effect */
-  }
-  
-  .submit-button:active {
-    transform: scale(0.98); /* Slight shrink effect */
-  }
-  
-  /* Contact Details */
-  .contact-details {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #1e1e1e; /* Dark Background */
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .contact-details h2 {
-    color: #bb86fc; /* Purple Accent */
-  }
-  
-  .contact-details a {
-    color: #03dac6; /* Teal Links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .contact-details a:hover {
-    color: #02b5a1; /* Darker Teal on Hover */
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .contact-container {
-      padding: 15px;
-    }
-  
-    .contact-form input,
-    .contact-form textarea {
-      padding: 10px;
-    }
-  
-    .submit-button {
-      padding: 10px;
-      font-size: 14px;
-    }
-  }
-  
+}

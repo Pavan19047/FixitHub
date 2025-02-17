@@ -1,0 +1,148 @@
+/* General container */
+.App {
+  min-height: 100vh;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.nav {
+  background-color: #0f172a;
+  color: white;
+  padding: 1rem;
+  margin-top: -8px;
+  margin-right: -16px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-image {
+  height: 40px;
+  width: 40px;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.brand-accent {
+  color: #10b981;
+}
+
+.menu-button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #10b981;
+}
+
+/* Footer */
+.footer {
+  background-color: #0f172a;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-link {
+  color: white;
+  transition: color 0.3s;
+  font-size: 1.5rem;
+}
+
+.social-link:hover {
+  color: #10b981;
+}
+
+.footer-text {
+  font-size: 1rem;
+}
+
+.footer-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.9rem;
+}
+
+.footer-link:hover {
+  color: #10b981;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #0f172a;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
