@@ -31,9 +31,9 @@ const HomePage = () => {
           </button>
 
           <div className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">Household Repairs</a>
-            <a href="#" className="nav-link">Public Issues</a>
+            <a href="/" className="nav-link">Home</a>
+            <a href="" className="nav-link">Household Repairs</a>
+            <a href="/public-issues" className="nav-link">Public Issues</a>
             <a href="#" className="nav-link">About</a>
             <a href="#" className="nav-link">Contact</a>
           </div>
