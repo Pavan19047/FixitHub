@@ -7,6 +7,7 @@ import ResolvedIssues from "./components/ResolvedIssues";
 import HomePage from "./components/HomePage";
 import CardsPage from "./components/WorkersList";
 import Layout from "./components/Layout";
+import UsersReview from "./components/UsersReview";
 import "./styles/App.css";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/householdrepairs" element={<HouseHold />} />
             <Route path="/workers/:category" element={<CardsPage />} />
+            <Route path="/usersreview" element={<UsersReview />} />
           </Routes>
         </div>
       </Layout>
