@@ -41,5 +41,25 @@ app.use('/api/issues', upload.single('file'), issueRoutes);
 app.use('/api/users', userRoutes);
 app.use("/api", workerRoutes);
 
+const reviewSchema = new mongoose.Schema({
+  name: String,
+  rating: Number,
+  review: String,
+});
+
+const Review = mongoose.model("Review", reviewSchema);
+
+// API Routes
+app.get("/api/reviews", async (req, res) => {
+  const reviews = await Review.find();
+  res.json(reviews);
+});
+
+app.post("/api/reviews", async (req, res) => {
+  const newReview = new Review(req.body);
+  await newReview.save();
+  res.json(newReview);
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
