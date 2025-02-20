@@ -60,7 +60,7 @@ const HomePage = () => {
         </main>
 
         {/* Footer */}
-        <footer className="footer">
+        {/* <footer className="footer">
           <div className="footer-container">
             <div className="footer-grid">
               <div>
@@ -94,7 +94,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </div>
   );

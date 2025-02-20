@@ -15,6 +15,8 @@ const WorkersList = () => {
     address: "",
     date: "",
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
 
   useEffect(() => {
     const fetchWorkers = async () => {
@@ -31,6 +33,7 @@ const WorkersList = () => {
 
   const handleBookClick = (worker) => {
     setSelectedWorker(worker);
+    setIsModalOpen(true);
   };
 
   const handleChange = (e) => {
@@ -47,12 +50,22 @@ const WorkersList = () => {
         address: bookingDetails.address,
         date: bookingDetails.date,
       });
-      alert("Booking confirmed! A message has been sent to the worker.");
-      setSelectedWorker(null);
-      setBookingDetails({ name: "", phone: "", address: "", date: "" });
+      setIsBookingConfirmed(true);
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setIsBookingConfirmed(false);
+        setSelectedWorker(null);
+        setBookingDetails({ name: "", phone: "", address: "", date: "" });
+      }, 3000); // Close modal after 3 seconds
     } catch (error) {
       console.error("Error booking worker:", error);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedWorker(null);
+    setBookingDetails({ name: "", phone: "", address: "", date: "" });
   };
 
   return (
@@ -78,43 +91,57 @@ const WorkersList = () => {
           <p>No workers available for this category.</p>
         )}
       </div>
-      {selectedWorker && (
-        <div className="booking-form">
-          <h3>Booking for {selectedWorker.name}</h3>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={bookingDetails.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="phone"
-              placeholder="Your Phone"
-              value={bookingDetails.phone}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="address"
-              placeholder="Your Address"
-              value={bookingDetails.address}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="date"
-              name="date"
-              value={bookingDetails.date}
-              onChange={handleChange}
-              required
-            />
-            <button type="submit">Confirm Booking</button>
-          </form>
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            {isBookingConfirmed ? (
+              <div className="confirmation-message">
+                <h3>Booking Confirmed!</h3>
+                <p>Message sent to the worker.</p>
+              </div>
+            ) : (
+              <div className="booking-form">
+                <h3>Booking for {selectedWorker.name}</h3>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={bookingDetails.name}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Your Phone"
+                    value={bookingDetails.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Your Address"
+                    value={bookingDetails.address}
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="date"
+                    name="date"
+                    value={bookingDetails.date}
+                    onChange={handleChange}
+                    required
+                  />
+                  <button type="submit">Confirm Booking</button>
+                </form>
+              </div>
+            )}
+            <button className="close-button" onClick={closeModal}>
+              Close
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../images/Logo.jpg";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/HomePage.css";
 
@@ -14,12 +13,9 @@ const Layout = ({ children }) => {
         {/* Navbar */}
         <nav className="nav">
           <div className="nav-container">
-            <div className="logo">
-              <img src={Logo} alt="FixItHub Logo" className="logo-image" />
-              <div className="brand-name">
-                <span>Fixit</span>
-                <span className="brand-accent">Hub</span>
-              </div>
+            <div className="brand-name">
+              <span>Fixit</span>
+              <span className="brand-accent">Hub</span>
             </div>
 
             <button
