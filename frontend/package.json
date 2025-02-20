@@ -18,12 +18,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-rating-stars-component": "^2.2.0",
-<<<<<<< HEAD
-    "react-router-dom": "^7.1.3"
-=======
-    "react-router-dom": "^7.1.3",
-    "react-scripts": "^5.0.1"
->>>>>>> 9202e9fac1f81821443cb156593508b0638c89fd
+    "react-router-dom": "^7.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,6 +1,4 @@
 .review-container {
-  position: relative;
-  top: 60px;
   width: 50%;
   margin: 0 auto; /* Centers the container horizontally */
   padding: 20px;
@@ -51,4 +49,8 @@
 
 .submit-btn:hover {
   background-color: #218838;
+}
+
+li{
+  list-style: none;
 }
