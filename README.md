@@ -1,70 +1,152 @@
+
 # 🔧 FixItHub
 
-FixItHub is a full-stack web application built to simplify household repair bookings and public issue reporting. The platform connects users with trusted workers like plumbers, electricians, and carpenters, and allows users to report civic issues like potholes, streetlight failures, etc. It includes SMS notifications, file uploads (via GridFS), voting for public issues, admin dashboards, and more.
+FixItHub is a full-stack MERN web application that enables users to **book trusted household workers** (plumbers, electricians, carpenters) and **report public infrastructure issues** with media and location support. It automates booking confirmations using **Twilio SMS**, supports file uploads via **GridFS**, enables **admin resolution management**, and facilitates **community voting** for public problems.
 
 ---
 
 ## 🚀 Features
 
-### ✅ Household Repair Services
-- View categorized workers: Plumber, Electrician, Carpenter
-- View worker details: Name, location, rating, contact
-- Book a worker with required details (name, address, phone, date)
-- Confirmation message sent via **Twilio SMS**
+### 🧑 Household Repairs
+- 📋 Categorized listings: Plumbers, Electricians, Carpenters
+- 🧾 Detailed profiles with name, location, rating, contact
+- 🗓️ Booking with name, phone, address, date
+- 📩 SMS confirmation using Twilio
+- 📬 Modal-based responsive booking UI
 
-### ✅ Public Issue Reporting
-- Upload civic issues like garbage, water leakage, road issues
-- Attach image files (via multer & GridFS)
-- Status tracking: Open / Resolved
-- Voting system for issue prioritization
-- Admin dashboard to mark issues as resolved
+### 🧱 Public Issue Reporting
+- 📝 Report issues with description, category, and location
+- 📸 Upload photo proof using GridFS (via Multer middleware)
+- 🔄 Track issue status (Open / Resolved)
+- 🔼 Vote system to prioritize community needs
+- 🧑‍💻 Admin dashboard to resolve & update issues
 
-### ✅ Reviews (Optional Module)
-- Leave a review after a service booking
-- Manage worker feedback
-- Display community ratings
+### 🗣️ User Review (Optional)
+- Collect feedback after booking
+- Rate and review workers (can be extended)
+- Link review collection post-booking
 
 ---
 
-## 📚 Tech Stack
+## 🧰 Tech Stack
 
-### 🖥 Frontend
+### Frontend
 - React.js
 - React Router DOM
 - Axios
-- Font Awesome Icons
 - CSS Modules
+- Font Awesome for icons
 
-### 🌐 Backend
+### Backend
 - Node.js
 - Express.js
-- MongoDB (Mongoose)
-- GridFS for file storage
-- Twilio for SMS booking confirmations
+- MongoDB with Mongoose
+- GridFS for file/image uploads
+- Multer + GridFsStorage for handling files
+- Twilio SMS API integration
 
 ---
 
-## 🔁 API Endpoints
+## 🧾 API Endpoints
 
-### 🧑‍🔧 Worker APIs
-- `GET /api/plumbers`
-- `GET /api/electricians`
-- `GET /api/carpenters`
+### 👷 Worker Routes
+- `GET /api/plumbers` – fetch all plumbers
+- `GET /api/electricians` – fetch all electricians
+- `GET /api/carpenters` – fetch all carpenters
 
-### 📅 Booking APIs
-- `POST /api/bookings` — book a worker & send SMS
-- `GET /api/bookings` — fetch all bookings
+### 📅 Booking Routes
+- `POST /api/bookings` – confirm and send SMS
+- `GET /api/bookings` – retrieve all bookings
 
-### 🚧 Issue Reporting APIs
-- `POST /api/issues` — report a new public issue (with file upload)
-- `GET /api/issues` — get all issues
-- `PUT /api/issues/:id/vote` — upvote an issue
-- `GET /api/reports` — get resolved issues
+### 🚨 Public Issues
+- `POST /api/issues` – report issue with optional image
+- `GET /api/issues` – fetch all issues
+- `PUT /api/issues/:id/vote` – vote an issue up
+- `GET /api/reports` – fetch resolved issues
 
 ### 📂 File Access
-- `GET /api/files/:filename` — fetch uploaded image by filename
+- `GET /api/files/:filename` – serve uploaded image via GridFS
 
 ---
 
-## 🔒 .env File (Required)
+## 🔐 .env File Configuration
 
+Create a `.env` file in the backend root with the following:
+
+```
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/fixithub
+TWILIO_ACCOUNT_SID=your_twilio_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+TWILIO_PHONE_NUMBER=your_twilio_registered_number
+```
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/yourusername/fixithub.git
+```
+
+### 2. Backend Setup
+```bash
+cd fixithub/backend
+npm install
+npm start
+```
+
+### 3. Frontend Setup
+```bash
+cd fixithub/frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🧪 Seed the Database (Optional)
+
+To populate 100 dummy workers per category (plumber, electrician, carpenter):
+
+```bash
+node seed.js
+```
+
+> Uses `@faker-js/faker` to generate names, ratings, locations, contacts.
+
+---
+
+## 🎯 Project Goals
+
+To simplify and digitize local problem-solving by connecting citizens with repair professionals and civic authorities. FixItHub empowers residents to take quick action through a centralized, transparent and reliable platform.
+
+---
+
+## ❓ Problem Statement
+
+Unified platform to solve local repair & public issues efficiently and transparently.
+
+---
+
+## 📈 Future Scope
+
+- 🌍 Live GPS map of issues
+- 🧑‍🔧 Worker login + reviews
+- 📱 Mobile app with push notifications
+- 🗳️ Public voting leaderboard
+- 🎯 Admin analytics and heatmap zones
+
+---
+
+## 🤝 Contributors
+
+- **Developer:** Pavan K
+- **Contact:** pavandimpu1234@gmail.com
+
+---
+
+## 📝 License
+
+MIT License © 2025 FixItHub
